@@ -1,0 +1,48 @@
+﻿@model MvcProject.Models.Entity.TBLHAREKET
+@{
+    ViewBag.Title = "Iade";
+    Layout = "~/Views/Shared/_LayoutPanel.cshtml";
+}
+
+<h2>Kitap İade Sayfası</h2>
+
+@using (Html.BeginForm("Guncelle", "Panel", FormMethod.Post))
+{
+    <div style=" margin-bottom:15px"></div>
+    <div class="form-group">
+        <label>Hareket Id</label>
+        @Html.TextBoxFor(k => k.ID, new { @class = "form-control" })
+        <br />
+        <label>Kitap Adı</label>
+        @Html.TextBoxFor(k => k.TBLKITAP.AD, new { @class = "form-control" })
+        <br />
+        <label>Üye</label>
+        @Html.TextBoxFor(k => k.TBLUYELER.AD, new { @class = "form-control" })
+        <br />
+        <label>Personel</label>
+        @Html.TextBoxFor(k => k.TBLPERSONEL.PERSONEL, new { @class = "form-control" })
+        <br />
+        <label>Alış Tarihi</label>
+        @Html.TextBoxFor(k => k.ALISTARIH, "{0: dd.MM.yyyy}", new { @class = "form-control" })
+        <br />
+        <label>Son İade Tarihi</label>
+        @Html.TextBoxFor(k => k.IADETARIH, "{0: dd.MM.yyyy}", new { @class = "form-control" })
+        <br />
+        <label>İade Tarihi</label>
+        <input type="text" class="form-control" name="UYEGETIRTARIH" value="@DateTime.Now.ToShortDateString()" />
+        <br />
+        <label>Geç Gelen Gün Sayısı</label>
+        @if (ViewBag.dgr < 0)
+        {
+            <input type="text" class="form-control" name="GecInput" value="0" />
+        }
+        else
+        {
+            <input type="text" class="form-control" name="GecInput" value="@ViewBag.dgr" />
+        }
+
+    </div>
+    <div>
+        <button class="btn btn-group" style="background-color:#680f90; color:#ffffff">Kitabı İade Et</button>
+    </div>
+}

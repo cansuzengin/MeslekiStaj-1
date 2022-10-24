@@ -1,0 +1,40 @@
+﻿@using MvcProject.Models.Entity
+@model List<TBLYAZAR>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Yazarlar</h2>
+
+<table class="table table-striped">
+    <tr style=" background-color: #899697">
+        <th>Id</th>
+        <th>Ad</th>
+        <th>Soyad</th>
+        <th>Detay</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+        <th>Kitaplar</th>
+    </tr>
+    @foreach (var y in Model)
+    {
+        <tr>
+            <td>@y.ID</td>
+            <td>@y.AD</td>
+            <td>@y.SOYAD</td>
+            <td>@y.DETAY</td>
+            <td>
+                @Html.ActionLink("Sil", "YazarSil", new { id = y.ID }, new
+                {
+                    @class
+       = "btn btn-danger",
+                    onclick = "return confirm('Silmek istiyor musunuz?')"
+                })
+            </td>
+            <td><a href="/Yazar/YazarGetir/@y.ID" style="background-color: #217139 " class="btn btn-success">Güncelle</a></td>
+            <td><a href="/Yazar/YazarKitap/@y.ID" style="background-color: #313030; color:#ffffff " class="btn btn-default">Kitaplar</a></td>
+        </tr>
+    }
+</table>
+<a class="btn btn-group" style="background-color: #899697; color: #ffffff " href="/Yazar/YazarEkle/">Yeni Yazar Ekle</a>

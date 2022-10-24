@@ -1,0 +1,35 @@
+﻿@model MvcProject.Models.Entity.TBLYAZAR
+@{
+    ViewBag.Title = "YazarEkle";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+
+<form class="form-group" method="post">
+    <div></div>
+    <div style="margin-top:15px">
+
+        <label>Yazar Adı</label>
+        @Html.TextBoxFor(y => y.AD, new { @class = "form-control" })
+        @Html.ValidationMessageFor(y => y.AD, "", new { @style = "color:red" })
+
+    </div>
+    <div style="margin-top:15px">
+
+        <label>Yazar Soyadı</label>
+        @Html.TextBoxFor(y => y.SOYAD, new { @class = "form-control" })
+        @Html.ValidationMessageFor(y => y.SOYAD, "", new { @style = "color:red" })
+
+    </div>
+    <div style="margin-top:15px">
+
+        <label>Yazar Detayı</label>
+        @Html.TextAreaFor(y => y.DETAY, new { @class = "form-control" })
+
+    </div>
+    <div style="margin-top:15px">
+
+        <button class="btn btn-group" style="background-color: #899697; color: #ffffff">Yazar Ekle</button>
+
+    </div>
+</form>

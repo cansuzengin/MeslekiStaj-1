@@ -1,0 +1,30 @@
+﻿@model MvcProject.Models.Entity.TBLYONETICI
+@{
+    ViewBag.Title = "AdminGuncelle";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+@using (Html.BeginForm("AdminGuncelle", "Ayarlar", FormMethod.Post))
+{
+    <div style="margin-bottom:15px"></div>
+    <div class="form-group">
+        @Html.LabelFor(k => k.ID)
+        @Html.TextBoxFor(k => k.ID, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(k => k.AD)
+        @Html.TextBoxFor(k => k.AD, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(k => k.SOYAD)
+        @Html.TextBoxFor(k => k.SOYAD, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(k => k.MAIL)
+        @Html.TextBoxFor(k => k.MAIL, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(k => k.SIFRE)
+        @Html.TextBoxFor(k => k.SIFRE, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(k => k.YETKI)
+        @Html.TextBoxFor(k => k.YETKI, new { @class = "form-control" })
+    </div>
+    <div><button class="btn btn-group" style="background-color: #899697; color: #ffffff">Güncelle</button></div>
+}

@@ -1,0 +1,24 @@
+﻿@using MvcProject.Models.Entity
+@model List<TBLKATEGORI>
+@{
+    ViewBag.Title = "PasifKategori";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Kategoriler</h2>
+
+<table class="table table-striped">
+    <tr style=" background-color:#f78246">
+        <th>Kategori Id</th>
+        <th>Kategori Adı</th>
+        <th>Geri Al</th>
+    </tr>
+    @foreach (var ktg in Model)
+    {
+        <tr>
+            <td>@ktg.ID</td>
+            <td>@ktg.AD</td>
+            <td><a href="/Kategori/GeriAl/@ktg.ID" class="btn btn-success" style="background-color: #899697; color: #ffffff">Geri Al</a></td>
+        </tr>
+    }
+</table>

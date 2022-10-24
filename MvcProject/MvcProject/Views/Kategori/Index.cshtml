@@ -1,0 +1,37 @@
+﻿@using MvcProject.Models.Entity
+@model List<TBLKATEGORI>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Kategoriler</h2>
+
+<table class="table table-striped">
+    <tr style=" background-color: #899697">
+        <th>Kategori Id</th>
+        <th>Kategori Adı</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    @foreach (var ktg in Model)
+    {
+    <tr>
+        <td>@ktg.ID</td>
+        <td>@ktg.AD</td>
+        <td>
+            @Html.ActionLink("Sil", "KategoriSil", new { id = ktg.ID }, new
+                    {
+                        @class
+           = "btn btn-danger",
+                        onclick = "return confirm('Silmek istiyor musunuz?')"
+                    })
+            </td>
+        <td><a href="/Kategori/KategoriGetir/@ktg.ID" class="btn btn-success" style="background-color:#217139; color:#ffffff">Güncelle</a></td>
+    </tr>
+    }
+
+</table>
+<a href="/Kategori/KategoriEkle/" class="btn btn-group" style="background-color: #899697; color: #ffffff">Yeni Kategori Ekle</a>
+&nbsp;
+<a href="/Kategori/PasifKategori/" class="btn btn-group" style="background-color: #899697; color: #ffffff">Pasif Kategoriler</a>

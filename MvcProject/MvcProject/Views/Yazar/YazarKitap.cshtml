@@ -1,0 +1,26 @@
+﻿@using MvcProject.Models.Entity;
+@model List<TBLKITAP>
+@{
+    ViewBag.Title = "YazarKitap";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>@ViewBag.yzr</h2>
+<br />
+<table class="table table-striped">
+    <tr style=" background-color:#f78246">
+        <th>Id</th>
+        <th>Kitap Adı</th>
+        <th>Kategori</th>
+        <th>Yayınevi</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.ID</td>
+            <td>@x.AD</td>
+            <td>@x.TBLKATEGORI.AD</td>
+            <td>@x.YAYINEVI</td>
+        </tr>
+    }
+</table>

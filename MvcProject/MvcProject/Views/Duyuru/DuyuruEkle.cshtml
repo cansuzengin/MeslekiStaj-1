@@ -1,0 +1,32 @@
+﻿@model MvcProject.Models.Entity.TBLDUYURU
+
+@{
+    ViewBag.Title = "DuyuruEkle";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Yeni Duyuru Ekle</h2>
+
+<form class="form-group" method="post">
+    <div></div>
+    <div style="margin-top:15px">
+        <label>Başlık</label>
+        @Html.TextBoxFor(x => x.BASLIK, "", new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Duyuru</label>
+        @Html.TextBoxFor(x => x.DUYURU, "", new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Etiket</label>
+        @Html.DropDownListFor(k => k.ETIKET, (List<SelectListItem>)ViewBag.dgr1,
+new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Tarih</label>
+        <input type="text" class="form-control" name="TARIH" value="@DateTime.Now.ToShortDateString()" />
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-group" style="background-color: #899697; color: #ffffff" id="Btn1">Duyuru Ekle</button>
+    </div>
+</form>

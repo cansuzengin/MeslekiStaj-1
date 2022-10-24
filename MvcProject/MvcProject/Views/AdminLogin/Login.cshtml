@@ -1,0 +1,173 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>AdminLTE 3 | Log in</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="~/AdminLTE-3.0.4/plugins/fontawesome-free/css/all.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- icheck bootstrap -->
+    <link rel="stylesheet" href="~/AdminLTE-3.0.4/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="~/AdminLTE-3.0.4/dist/css/adminlte.min.css">
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+    <style>
+        dialog {
+            padding: 0;
+            border: none;
+            border-radius: 20px;
+            width: 30%;
+            font-size: 15px
+        }
+
+            dialog::backdrop {
+                background: rgb(99,110,114,.9);
+            }
+
+            dialog div {
+                border-bottom: 1px solid #b2bec3;
+                padding: 20px;
+                float: right;
+            }
+    </style>
+
+</head>
+<body class="hold-transition login-page">
+    <div class="login-box">
+        <div class="login-logo">
+            <a href="~/AdminLTE-3.0.4/index2.html">Yönetici Girişi</a>
+        </div>
+
+
+        <div id="id02" class="w3-modal">
+            <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
+
+                <div class="w3-center">
+                    <br>
+                    <span onclick="document.getElementById('id02').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
+                    <img src="~/web/img/library.png" alt="Avatar" style="width:30%" class="w3-circle w3-margin-top">
+                </div>
+
+                <form class="w3-container" method="post" action="/AdminLogin/Kontrol/">
+                    <div class="w3-section">
+                        <label><b>Email</b></label>
+                        <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Mail adresinizi giriniz.." name="MAIL" required="">
+                        <label><b>Güvenlik Anahtarı</b></label>
+                        <input class="w3-input w3-border" type="password" placeholder="Güvenlik Anahtarınızı giriniz.." name="KURTARMA" required="">
+                        <br />
+                        <label><b>Yeni Şifre</b></label>
+                        <input class="w3-input w3-border" type="password" placeholder="Yeni Şifrenizi giriniz.." name="SIFRE" required="">
+                        <br />
+                        <button class="w3-button w3-block w3-green w3-section w3-padding" type="submit">Kaydet</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+
+
+        <!-- /.login-logo -->
+        @using (Html.BeginForm("Login", "AdminLogin", FormMethod.Post))
+        {
+            <div class="card">
+                <div class="card-body login-card-body">
+                    <p class="login-box-msg">Giriş Yap</p>
+
+                    <form action="~/AdminLTE-3.0.4/index3.html" method="post">
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" name="MAIL" placeholder="Email" required="">
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fas fa-envelope"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input-group mb-3">
+                            <input type="password" class="form-control" name="SIFRE" placeholder="Şifre" required="">
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fas fa-lock"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <!-- /.col -->
+                            <div class="col-4">
+                                <button type="submit" id="Ac" class="btn btn-primary btn-block">Giriş Yap</button>
+                            </div>
+
+                            <div class=" w3l-form-group">
+                                <input type="hidden" class="form-control" name="Uyari2" id="Admin" value="@ViewBag.deger" />
+                            </div>
+                            <!-- /.col -->
+                        </div>
+                    </form>
+
+                    <div class="social-auth-links text-center mb-3">
+                        <p>- VEYA -</p>
+                        <a href="/vitrin/Index/" class="btn btn-block btn-primary">
+                            <i class="fas fa-image mr-2"></i> Vitrine Geri Dön
+                        </a>
+                        <a href="/Login/GirisYap/" class="btn btn-block btn-danger">
+                            <i class="fas fa-user mr-2"></i> Kullanıcı Girişine Git
+                        </a>
+                    </div>
+                    <!-- /.social-auth-links -->
+                    <p class="mb-1">
+                        <a href="#" onclick="document.getElementById('id02').style.display='block'" class="checkbox">Şifremi Unuttum</a>
+                    </p>
+
+                    <dialog id="modal2">
+                        <form action="" method="dialog">
+                            <br />
+                            <output style="font-family:'Times New Roman';color:red">  &nbsp Hata Mesajı</output>
+                            <div>
+                                <h2 style="color:black;">Kullanıcı adı veya şifre hatalı!</h2>
+                            </div>
+                            <div>
+                                <menu>
+                                    <button style="font-size:15px;width:150px;border:none;  background:#275964;color:#ffffff;padding:10px" value="onay">Tamam</button>
+                                </menu>
+                            </div>
+
+                        </form>
+                    </dialog>
+                    <script>
+                        var modalAc2 = document.querySelector("#Ac");
+                        var modal2 = document.querySelector("#modal2");
+                        var output2 = document.querySelector("output2");
+
+                        console.log(document.getElementById("Admin").value);
+                        if (document.getElementById("Admin").value == 1) {
+                            modal2.showModal();
+                        }
+
+                    </script>
+
+                </div>
+                <!-- /.login-card-body -->
+            </div>
+        }
+    </div>
+    <!-- /.login-box -->
+    <!-- jQuery -->
+    <script src="~/AdminLTE-3.0.4/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="~/AdminLTE-3.0.4/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="~/AdminLTE-3.0.4/dist/js/adminlte.min.js"></script>
+
+</body>
+</html>

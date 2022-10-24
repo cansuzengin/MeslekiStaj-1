@@ -1,0 +1,35 @@
+﻿@using MvcProject.Models.Entity
+@model List<TBLPERSONEL>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Personeller</h2>
+
+<table class="table table-striped">
+    <tr style=" background-color: #899697">
+        <th>Personel Id</th>
+        <th>Personel Adı</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    @foreach (var prs in Model)
+    {
+        <tr>
+            <td>@prs.ID</td>
+            <td>@prs.PERSONEL</td>
+            <td>
+                @Html.ActionLink("Sil", "PersonelSil", new { id = prs.ID }, new
+                        {
+                            @class
+               = "btn btn-danger",
+                            onclick = "return confirm('Silmek istiyor musunuz?')"
+                        })
+                    </td>
+            <td><a href="/Personel/PersonelGetir/@prs.ID" class="btn btn-success" style="background-color:#217139; color:#ffffff">Güncelle</a></td>
+        </tr>
+    }
+
+</table>
+<a href="/Personel/PersonelEkle/" class="btn btn-group" style="background-color: #899697; color: #ffffff">Yeni Personel Ekle</a>

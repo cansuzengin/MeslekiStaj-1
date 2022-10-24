@@ -1,0 +1,55 @@
+﻿@using MvcProject.Models.Entity
+@model List<TBLDUYURU>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+    string renk = "";
+}
+
+<h2>Duyurular</h2>
+
+<table class="table table-bordered">
+    <tr style=" background-color: #899697">
+        <th>Duyuru Id</th>
+        <th>Başlık</th>
+        <th>Etiket</th>
+        <th>Tarih</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+        <th>Detaylar</th>
+    </tr>
+    @foreach (var dyr in Model)
+    {
+        if(dyr.ETIKET=="Önemli")
+        {
+            renk = "bg-danger text-white";
+        }
+        else if (dyr.ETIKET == "Tanıtım")
+        {
+            renk = "bg-info text-white";
+        }
+        else
+        {
+            renk = "";
+        }
+        <tr class="@renk">
+            <td>@dyr.ID</td>
+            <td>@dyr.BASLIK</td>
+            <td>@dyr.ETIKET</td>
+            <td>@Convert.ToDateTime(dyr.TARIH).ToString("dd/MM/yyyy")</td>
+
+            <td>
+                @Html.ActionLink("Sil", "DuyuruSil", new { id = dyr.ID }, new
+                        {
+                            @class
+               = "btn btn-danger",
+                            onclick = "return confirm('Silmek istiyor musunuz?')"
+                        })
+            </td>
+            <td><a href="/Duyuru/DuyuruGetir/@dyr.ID" class="btn btn-success" style="background-color:#217139; color:#ffffff">Güncelle</a></td>
+            <td><a href="/Duyuru/DuyuruDetay/@dyr.ID" style="background-color: #313030; color:#ffffff " class="btn btn-default">Detaylar</a></td>
+        </tr>
+    }
+
+</table>
+<a href="/Duyuru/DuyuruEkle/" class="btn btn-group" style="background-color:  #899697; color: #ffffff">Yeni Duyuru Ekle</a>

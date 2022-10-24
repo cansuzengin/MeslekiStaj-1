@@ -1,0 +1,83 @@
+﻿@using MvcProject.Models.Entity
+@model List<TBLYONETICI>
+@{
+    ViewBag.Title = "Index2";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+<h2>Yöneticiler</h2>
+<br>
+<link rel="stylesheet" href="/AdminLTE-3.0.4/plugins/fontawesome-free/css/all.min.css">
+<table class="table table-striped">
+    <tr style="background-color: #899697">
+        <th>Id</th>
+        <th>Ad</th>
+        <th>Soyad</th>
+        <th>Email</th>
+        <th>Yetki</th>
+        <th>Durum</th>
+        <th>Güncelle</th>
+        <th>Sil</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>@item.ID</td>
+    <td>@item.AD</td>
+    <td>@item.SOYAD</td>
+    <td>@item.MAIL</td>
+    <td>@item.YETKI</td>
+    <td><span class="badge badge-success">Success</span></td>
+    <td>
+        <a class="btn btn-info btn-sm" href="~/Ayarlar/AdminGuncelle?id=@item.ID">
+            <i class="fas fa-pencil-alt">
+            </i>
+            Düzenle
+        </a>
+    </td>
+    <td>
+        <a class="btn btn-danger btn-sm" href="~/Ayarlar/AdminSil?id=@item.ID">
+            <i class="fas fa-trash">
+            </i>
+            Sil
+        </a>
+    </td>
+</tr>
+    }
+
+</table>
+<br />
+<button class="btn btn-default" style="background-color: #899697; color:white" data-toggle="modal" data-target="#Modal1">Yeni Yönetici Ekle</button>
+<div class="modal" id="Modal1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Yönetici Ekle</h2>
+            </div>
+            <form method="post" action="/Ayarlar/NewAdmin/">
+                <div class="modal-body">
+                    <label>Ad</label>
+                    <input type="text" name="AD" class="form-control" />
+                    <br />
+                    <label>Soyad</label>
+                    <input type="text" name="SOYAD" class="form-control" />
+                    <br />
+                    <label>Email</label>
+                    <input type="email" name="MAIL" class="form-control" />
+                    <br />
+                    <label>Şifre</label>
+                    <input type="password" name="SIFRE" class="form-control" />
+                    <br />
+                    <label>Yetki</label>
+                    <input type="text" name="YETKI" class="form-control" />
+                    <br />
+                    <label>Güvenlik Anahtarı</label>
+                    <input type="text" name="KURTARMA" class="form-control" />
+                    <br />
+                    <button class="btn btn-info">Kaydet</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,129 @@
+﻿@model MvcProject.Models.Entity.TBLUYELER
+
+@using (Html.BeginForm("Index2", "Panel", FormMethod.Post))
+{
+    <form class="form-horizontal">
+
+        <div class="form-group row">
+
+            <label for="inputName" class="col-sm-2 col-form-label">Ad</label>
+
+            <div class="col-sm-10">
+
+                @Html.TextBoxFor(x => x.AD, new { @class = "form-control" })
+
+            </div>
+
+        </div>
+
+        <div class="form-group row">
+
+            <label for="inputName" class="col-sm-2 col-form-label">Soyad</label>
+
+            <div class="col-sm-10">
+
+                @Html.TextBoxFor(x => x.SOYAD, new { @class = "form-control" })
+
+            </div>
+
+        </div>
+
+        <div class="form-group row">
+
+            <label for="inputName" class="col-sm-2 col-form-label">Kullanıcı Adı</label>
+
+            <div class="col-sm-10">
+
+                @Html.TextBoxFor(x => x.KULLANICIADI, new { @class = "form-control" })
+
+            </div>
+
+        </div>
+
+        <div class="form-group row">
+
+            <label for="inputName" class="col-sm-2 col-form-label">Şifre</label>
+
+            <div class="col-sm-10">
+
+                @Html.TextBoxFor(x => x.SIFRE, new { @class = "form-control" })
+
+            </div>
+
+        </div>
+
+        <div class="form-group row">
+
+            <label for="inputName" class="col-sm-2 col-form-label">Fotoğraf</label>
+
+            <div class="col-sm-10">
+
+                @Html.TextBoxFor(x => x.FOTOGRAF, new { @class = "form-control" })
+
+            </div>
+
+        </div>
+
+        <div class="form-group row">
+
+            <label for="inputName" class="col-sm-2 col-form-label">Okul</label>
+
+            <div class="col-sm-10">
+
+                @Html.TextBoxFor(x => x.OKUL, new { @class = "form-control" })
+
+            </div>
+
+        </div>
+
+        <div class="form-group row">
+
+            <div class="offset-sm-2 col-sm-10">
+
+                <div class="checkbox">
+
+                    <label>
+
+                        <input type="checkbox" required=""> <a href="#" data-toggle="modal" data-target="#exampleModalLong">Şartları</a> okudum, kabul ediyorum.
+
+                    </label>
+
+                </div>
+
+            </div>
+
+        </div>
+        <!-- Modal -->
+        <div class="modal" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Kişisel bilgileri güncelleme</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        Kişisel bilgilerinizde güncelleme yapmak sizin sorumluluğunuzdadır. Kütüphane sistemimiz bu güncellemeden sorumlu değildir. Eğer kabul ediyorsanız şartları okudum ve kabul ediyorum diyerek ilerleyebilirsiniz.
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Tamam</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="form-group row">
+
+            <div class="offset-sm-2 col-sm-10">
+
+                <button type="submit" class="btn btn-danger">Güncelle</button>
+
+            </div>
+
+        </div>
+
+    </form>
+}

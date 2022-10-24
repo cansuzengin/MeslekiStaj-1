@@ -1,0 +1,39 @@
+﻿@using MvcProject.Models.Entity
+@model List<TBLKITAP>
+@{
+    ViewBag.Title = "image";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>@ViewBag.ktp</h2>
+<br />
+<table class="table table-striped">
+    <tr style=" background-color:#f78246">
+        <th>Resim</th>
+        <th>Detay</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>
+                <br />
+                <img src="@x.KITAPRESIM" style="display: block; margin: auto; height: 500px; width: 300px; object-fit: cover; float:left; margin:auto">
+
+            </td>
+            <td>
+                <br />
+                <label>Kitap Adı:&nbsp  @x.AD</label>
+                <br /><br />
+                <label>Kitap Yazarı:&nbsp  @x.TBLYAZAR.AD @x.TBLYAZAR.SOYAD</label>
+                <br /><br />
+                <label>Kitap Yayınevi:&nbsp  @x.YAYINEVI</label>
+                <br /><br />
+                <label>Sayfa Sayısı: &nbsp  @x.SAYFA</label>
+                <br /><br />
+                <label>Açıklama: &nbsp @x.ACİKLAMA</label>
+                <br /><br />
+            </td>
+
+        </tr>
+    }
+</table>

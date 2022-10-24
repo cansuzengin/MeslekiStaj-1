@@ -1,0 +1,272 @@
+﻿@using MvcProject.Models.Entity
+@model List<TBLDUYURU>
+@{
+    ViewBag.Title = "Account";
+    Layout = "~/Views/Shared/_LayoutPanel.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+
+    <meta charset="utf-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>AdminLTE 3 | User Profile</title>
+
+    <!-- Tell the browser to be responsive to screen width -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Font Awesome -->
+
+    <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
+
+    <!-- Ionicons -->
+
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+
+    <!-- Theme style -->
+
+    <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+
+    <!-- Google Font: Source Sans Pro -->
+
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+</head>
+
+<body class="hold-transition sidebar-mini">
+
+    <!-- Navbar -->
+    <!-- Content Wrapper. Contains page content -->
+    <!-- Content Header (Page header) -->
+
+    <section class="content-header">
+
+        <div class="container-fluid">
+
+            <div class="row mb-2">
+
+                <div class="col-sm-6">
+
+                    <h1>Profil</h1>
+
+                </div>
+
+            </div>
+
+        </div><!-- /.container-fluid -->
+
+    </section>
+
+    <!-- Main content -->
+
+    <section class="content">
+
+        <div class="container-fluid">
+
+            <div class="row">
+
+                <div class="col-md-3">
+
+                    <!-- Profile Image -->
+
+                    <div class="card card-primary card-outline">
+
+                        <div class="card-body box-profile">
+
+                            <div class="text-center">
+
+                                <img class="profile-user-img img-fluid img-circle"
+                                     src="@ViewBag.dgr3"
+                                     alt="User profile picture">
+
+                            </div>
+
+                            <h3 class="profile-username text-center">@ViewBag.dgr1 @ViewBag.dgr2</h3>
+
+
+                            <p class="text-muted text-center">Kütüphane Üyesi</p>
+
+
+                            <ul class="list-group list-group-unbordered mb-3">
+
+                                <li class="list-group-item">
+
+                                    <b>Kitap Sayısı</b> <a class="float-right">@ViewBag.dgr8</a>
+
+                                </li>
+
+                                <li class="list-group-item">
+
+                                    <b>Mesaj Sayısı</b> <a class="float-right">@ViewBag.dgr9</a>
+
+                                </li>
+
+                                <li class="list-group-item">
+
+                                    <b>Duyuru Sayısı</b> <a class="float-right">@ViewBag.dgr10</a>
+
+                                </li>
+
+                            </ul>
+
+                        </div>
+
+                        <!-- /.card-body -->
+
+                    </div>
+
+                    <!-- /.card -->
+                    <!-- About Me Box -->
+
+                    <div class="card card-primary">
+
+                        <div class="card-header">
+
+                            <h3 class="card-title">Hakkımda</h3>
+
+                        </div>
+
+                        <!-- /.card-header -->
+
+                        <div class="card-body">
+
+                            <strong><i class="fas fa-envelope mr-1"></i> E-mail</strong>
+
+                            <p class="text-muted">
+
+                                @ViewBag.dgr7
+
+                            </p>
+                            <hr>
+
+                            <strong><i class="fas fa-user mr-1"></i> Kullanıcı Adı</strong>
+
+                            <p class="text-muted">
+
+                                @ViewBag.dgr4
+
+                            </p>
+                            <hr>
+
+                            <strong><i class="fas fa-graduation-cap mr-1"></i> Okul</strong>
+
+                            <p class="text-muted">
+
+                                @ViewBag.dgr6
+
+                            </p>
+
+                            <hr>
+                            <strong><i class="fas fa-phone-alt mr-1"></i> Telefon</strong>
+
+                            <p class="text-muted">
+
+                                @ViewBag.dgr5
+
+                            </p>
+
+                        </div>
+
+                        <!-- /.card-body -->
+
+                    </div>
+
+                    <!-- /.card -->
+
+                </div>
+
+                <!-- /.col -->
+
+                <div class="col-md-9">
+
+                    <div class="card">
+
+                        <div class="card-header p-2">
+
+                            <ul class="nav nav-pills">
+
+                                <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">Duyurular</a></li>
+
+                                <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Ayarlar</a></li>
+
+                            </ul>
+
+                        </div><!-- /.card-header -->
+
+                        <div class="card-body">
+
+                            <div class="tab-content">
+
+                                <div class="active tab-pane" id="activity">
+
+                                    <!-- Post -->
+
+                                    @Html.Partial("Partial1")
+
+                                </div>
+
+
+
+                                <div class="tab-pane" id="settings">
+
+                                    @Html.Action("Partial2","Panel")
+
+                                </div>
+
+                                <!-- /.tab-pane -->
+
+                            </div>
+
+                            <!-- /.tab-content -->
+
+                        </div><!-- /.card-body -->
+
+                    </div>
+
+                    <!-- /.nav-tabs-custom -->
+
+                </div>
+
+                <!-- /.col -->
+
+            </div>
+
+            <!-- /.row -->
+
+        </div><!-- /.container-fluid -->
+
+    </section>
+
+    <!-- Control Sidebar -->
+
+    <aside class="control-sidebar control-sidebar-dark">
+
+        <!-- Control sidebar content goes here -->
+
+    </aside>
+
+    <!-- /.control-sidebar -->
+    <!-- ./wrapper -->
+    <!-- jQuery -->
+
+    <script src="../../plugins/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap 4 -->
+
+    <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- AdminLTE App -->
+
+    <script src="../../dist/js/adminlte.min.js"></script>
+
+    <!-- AdminLTE for demo purposes -->
+
+    <script src="../../dist/js/demo.js"></script>
+
+</body>
+</html>
